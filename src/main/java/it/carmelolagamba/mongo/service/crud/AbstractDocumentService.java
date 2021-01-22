@@ -90,10 +90,10 @@ public abstract class AbstractDocumentService implements MongoInsertOperationInt
 						getLogger().error("Error on [DocumentService]: ", t);
 						future.complete(new Boolean(false));
 					} else {
-						getLogger().debug("Prestazioni deleted in {} s", (System.currentTimeMillis() - start) / 1000);
+						getLogger().debug("Items deleted in {} s", (System.currentTimeMillis() - start) / 1000);
 						try {
 							boolean check = asyncInsertMany(collectionName, documentList) && result.wasAcknowledged();
-							getLogger().debug("Prestazioni replaced in {} s with ack {}",
+							getLogger().debug("Items replaced in {} s with ack {}",
 									(System.currentTimeMillis() - start) / 1000, result.wasAcknowledged());
 							future.complete(check);
 						} catch (InterruptedException | ExecutionException e) {
@@ -161,14 +161,14 @@ public abstract class AbstractDocumentService implements MongoInsertOperationInt
 						}
 						future.complete(new Boolean(false));
 					} else {
-						getLogger().debug("Prestazioni deleted in {} s, ack result -> {}",
+						getLogger().debug("Items deleted in {} s, ack result -> {}",
 								(System.currentTimeMillis() - start) / 1000, result.wasAcknowledged());
 						try {
 							boolean insertCheck = true;
 							if (!documentList.isEmpty()) {
 								insertCheck = asyncInsertMany(collection, documentList);
 							}
-							getLogger().debug("Prestazioni replaced in {} s",
+							getLogger().debug("Items replaced in {} s",
 									(System.currentTimeMillis() - start) / 1000);
 							future.complete(insertCheck);
 						} catch (InterruptedException | ExecutionException e) {

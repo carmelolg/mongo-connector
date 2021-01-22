@@ -139,7 +139,7 @@ interface MongoInsertOperationInterface extends MongoBaseCrudOperationInterface 
 		try {
 
 			collection.insertMany(list, new InsertManyOptions());
-			getLogger().debug("Prestazioni performed in {} s", (System.currentTimeMillis() - start) / 1000);
+			getLogger().debug("Items performed in {} s", (System.currentTimeMillis() - start) / 1000);
 			return list.size();
 
 		} catch (WriteConcernException e) {
@@ -185,7 +185,7 @@ interface MongoInsertOperationInterface extends MongoBaseCrudOperationInterface 
 		try {
 
 			collection.insertMany(dbObjectList, new InsertManyOptions());
-			getLogger().debug("Prestazioni performed in {} s", (System.currentTimeMillis() - start) / 1000);
+			getLogger().debug("Items performed in {} s", (System.currentTimeMillis() - start) / 1000);
 			return dbObjectList.size();
 
 		} catch (WriteConcernException e) {
@@ -224,7 +224,7 @@ interface MongoInsertOperationInterface extends MongoBaseCrudOperationInterface 
 						getLogger().error("Error on [DocumentService]: ", t);
 						future.complete(new Boolean(false));
 					} else {
-						getLogger().debug("Prestazioni performed in {} s", (System.currentTimeMillis() - start) / 1000);
+						getLogger().debug("Items performed in {} s", (System.currentTimeMillis() - start) / 1000);
 						future.complete(new Boolean(true));
 					}
 				}
@@ -267,7 +267,7 @@ interface MongoInsertOperationInterface extends MongoBaseCrudOperationInterface 
 							getLogger().error("Error on [DocumentService]: ", t);
 							future.complete(new Boolean(false));
 						} else {
-							getLogger().debug("Prestazioni performed in {} s",
+							getLogger().debug("Items performed in {} s",
 									(System.currentTimeMillis() - start) / 1000);
 							future.complete(new Boolean(true));
 						}
@@ -300,7 +300,7 @@ interface MongoInsertOperationInterface extends MongoBaseCrudOperationInterface 
 							getLogger().error("Error on [DocumentService]: ", t);
 							future.complete(new Boolean(false));
 						} else {
-							getLogger().debug("Prestazioni performed in {} s",
+							getLogger().debug("Items performed in {} s",
 									(System.currentTimeMillis() - start) / 1000);
 							future.complete(new Boolean(true));
 						}

@@ -131,7 +131,7 @@ interface MongoUpdateOperationInterface extends MongoBaseCrudOperationInterface 
 						getLogger().error("Error on [DocumentService]: ", t);
 						future.complete(new Boolean(false));
 					} else {
-						getLogger().debug("Prestazioni performed in {} s with ack {}",
+						getLogger().debug("Items performed in {} s with ack {}",
 								(System.currentTimeMillis() - start) / 1000, result.wasAcknowledged());
 						future.complete(result.wasAcknowledged());
 					}
@@ -174,7 +174,7 @@ interface MongoUpdateOperationInterface extends MongoBaseCrudOperationInterface 
 						future.complete(new Boolean(false));
 					} else {
 
-						getLogger().debug("Prestazioni performed in {} s, ack result -> {}",
+						getLogger().debug("Items performed in {} s, ack result -> {}",
 								(System.currentTimeMillis() - start) / 1000, result.wasAcknowledged());
 						future.complete(result.wasAcknowledged());
 					}

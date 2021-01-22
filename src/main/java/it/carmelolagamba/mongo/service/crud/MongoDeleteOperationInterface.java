@@ -36,7 +36,7 @@ interface MongoDeleteOperationInterface extends MongoBaseCrudOperationInterface 
 		try {
 
 			DeleteResult deleteResult = collection.deleteMany(filters);
-			getLogger().debug("Prestazioni deleted in {} s, ack response -> {}", (System.currentTimeMillis() - start) / 1000,
+			getLogger().debug("Items deleted in {} s, ack response -> {}", (System.currentTimeMillis() - start) / 1000,
 					deleteResult.wasAcknowledged());
 
 		} catch (MongoWriteException | MongoWriteConcernException e) {
